@@ -1,9 +1,13 @@
 package com.javacode;
 
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainWindow {
 	private JFrame window;
@@ -11,25 +15,27 @@ public class MainWindow {
 	public MainWindow() {
 		window = new JFrame();
 		window.setTitle("Hello World");
+		window.setLayout(new BorderLayout(10, 5));
 		window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		window.setSize(800, 500);
-		centerWindow();
-	}
+		window.setLocationRelativeTo(null);
 
-	private void centerWindow() {
-		// Get the dimensions of the screen
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
+		panel.setBackground(Color.red);
 
-		// Calculate the x and y positions to center the window
-		int x = (screenSize.width - window.getWidth()) / 2;
-		int y = (screenSize.height - window.getHeight()) / 2;
+		Button btn1 = new Button("Button 1");
+		Button btn2 = new Button("Button 2");
+		Button btn3 = new Button("Button 3");
+		panel.add(btn1);
+		panel.add(btn2);
+		panel.add(btn3);
 
-		// Set the window's location
-		window.setLocation(x, y);
-	}
+		panel.setPreferredSize(new Dimension(250, 250));
 
-	public void show() {
+		window.add(panel, BorderLayout.WEST);
+
 		window.setVisible(true);
-
 	}
+
 }

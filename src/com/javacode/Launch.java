@@ -9,8 +9,11 @@ public class Launch {
 			@Override
 			public void run() {
 				MainWindow main = new MainWindow();
-				main.show();
 			}
+//			public void run() {
+//				JFrameOne frame1 = new JFrameOne();
+//				JFrameTwo frame2 = new JFrameTwo();
+//			}
 		});
 	}
 
